@@ -20,6 +20,11 @@
       "@pages/*": ["pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/hooks/usePagination.ts"
+  ],
   "exclude": ["node_modules"]
 }

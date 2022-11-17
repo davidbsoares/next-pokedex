@@ -37,9 +37,9 @@ module.exports = {
         },
       },
       gridTemplateColumns: {
-        'auto-fit': 'repeat(auto-fit, minmax(336px, 1fr))',
-        'auto-fill': 'repeat(auto-fill, minmax(336px, 1fr))',
+        'auto-fill': 'repeat(auto-fill, minmax(336px, 1fr))',        
       },
+      
     },
   },
   plugins: [],

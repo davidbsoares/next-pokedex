@@ -1,36 +1,39 @@
-import * as Select from '@radix-ui/react-select';
-import { CaretDown, CaretUp } from 'phosphor-react';
-import { ReactNode } from 'react';
+import Select from 'react-select';
 
 interface SelectProps {
-  placeholder: string;
-  children: ReactNode;
+  value: string;
+  label: string;
 }
 
-export const SelectInput = ({ children, placeholder }: SelectProps) => (
-  <div className="flex flex-col gap-2 ">
-    <Select.Root>
-      <Select.Trigger
-        id="country"
-        className="flex justify-between gap-2 px-4 py-3 text-sm rounded bg-slate-200 text-dark outline-0"
-      >
-        <Select.Value placeholder={placeholder} />
-        <Select.Icon />
-      </Select.Trigger>
-
-      <Select.Portal className="z-30">
-        <Select.Content>
-          <Select.ScrollUpButton className="flex items-center justify-center text-gray-700 dark:text-gray-300">
-            <CaretUp size={18} />
-          </Select.ScrollUpButton>
-          <Select.Viewport className="px-4 py-3 text-sm rounded shadow-lg bg-slate-200 text-dark">
-            {children}
-          </Select.Viewport>
-          <Select.ScrollDownButton className="flex items-center justify-center text-gray-700 dark:text-gray-300">
-            <CaretDown size={18} />
-          </Select.ScrollDownButton>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
-  </div>
-);
+interface Props {
+  options: SelectProps[];
+  setValue: any;
+  value: SelectProps[];
+  placeholder: string;
+}
+export default function ({ options, value, setValue, placeholder }: Props) {
+  return (
+    <Select
+      isMulti
+      placeholder={placeholder}
+      options={options}
+      value={value}
+      styles={{
+        container: (baseStyle) => ({
+          ...baseStyle,
+          zIndex: '50',
+        }),
+        control: (baseStyle, state) => ({
+          ...baseStyle,
+          height: '44px',
+          borderColor: 'grey',
+        }),
+        valueContainer: (baseStyle) => ({
+          ...baseStyle,
+          paddingRight: '32px',
+        }),
+      }}
+      onChange={(value) => setValue(value)}
+    />
+  );
+}
