@@ -36,7 +36,7 @@ export const appRouter = router({
               : {}),
             ...(input.kinds?.length
               ? {
-                  special_kind: {
+                  specialKind: {
                     in: input.kinds,
                   },
                 }
@@ -69,7 +69,7 @@ export const appRouter = router({
               : {}),
             ...(input.kinds?.length
               ? {
-                  special_kind: {
+                  specialKind: {
                     in: input.kinds,
                   },
                 }

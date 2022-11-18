@@ -25,6 +25,6 @@ export interface PokemonProps {
   sdef?: number;
   spd?: number;
   description?: string;
-  special_kind?: string;
+  specialKind?: string;
   moves?: MovesProps[];
 }
