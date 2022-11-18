@@ -32,8 +32,6 @@ const Home: NextPage<pokemonsListProps> = () => {
     kinds: kind.map((t) => t.value),
   }).data;
 
-  console.log(data);
-
   useEffect(() => {
     if (data && total !== data?.[0]) {
       setTotal(data?.[0]);

@@ -11,19 +11,34 @@ datasource db {
 }
 
 model Pokemon {
-  id          Int    @id
-  name        String
-  weight      Int
-  height      Int
-  kinds       String
-  types       String
-  hp          Int
-  atk         Int
-  def         Int
-  satk        Int
-  sdef        Int
-  spd         Int
-  moves       String
-  image       String
-  description String
+  id           Int     @id
+  name         String
+  weight       Int
+  height       Int
+  hp           Int
+  atk          Int
+  def          Int
+  satk         Int
+  sdef         Int
+  spd          Int
+  image        String
+  description  String?
+  special_kind String?
+  types        Type[]
+  moves        Move[]
+}
+
+model Type {
+  id        Int      @id @default(autoincrement())
+  pokemonId Int
+  type      String
+  firstType Boolean  @default(false)
+  Pokemon   Pokemon? @relation(fields: [pokemonId], references: [id])
+}
+
+model Move {
+  id        Int      @id @default(autoincrement())
+  pokemonId Int
+  move      String
+  Pokemon   Pokemon? @relation(fields: [pokemonId], references: [id])
 }

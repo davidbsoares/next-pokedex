@@ -11,7 +11,7 @@ interface CardProps {
 const Card = ({ pokemon }: CardProps) => {
   const { name, types, id, atk, def, image } = pokemon;
 
-  const firstType = types.split(',')?.[0];
+  const firstType = types.find((type) => type.firstType)?.type;
 
   return (
     <Link href={`/${id}`}>
@@ -25,12 +25,9 @@ const Card = ({ pokemon }: CardProps) => {
             <Stats name="DEF" value={def} />
           </div>
           <div className="flex items-center content-start gap-2">
-            {types
-              .split(',')
-              .slice(0, 2)
-              .map((type: string, i: number) => (
-                <Tag key={i} type={type} />
-              ))}
+            {types.slice(0, 2).map(({ type }, i) => (
+              <Tag key={i} type={type} />
+            ))}
           </div>
         </div>
 

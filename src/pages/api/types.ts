@@ -4,7 +4,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 
-import pokemonDatabase from 'data/pokemonsDB.json';
+import typeDatabase from 'data/typesDB.json';
 
 const prisma = new PrismaClient({
   log: ['query'],
@@ -25,9 +25,15 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   /* return Promise.allSettled(
-    pokemonDatabase.map(async (pokemon) => {
-      return await prisma.pokemon.create({
-        data: pokemon,
+    typeDatabase.map(async (type) => {
+      return type.types.map(async (t) => {
+        return await prisma.type.create({
+          data: {
+            pokemonId: type.id,
+            type: t.name,
+            firstType: t.firstType,
+          },
+        });
       });
     })
   )

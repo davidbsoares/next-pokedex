@@ -4,7 +4,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 
-import pokemonDatabase from 'data/pokemonsDB.json';
+import moveDatabase from 'data/movesDB.json';
 
 const prisma = new PrismaClient({
   log: ['query'],
@@ -24,10 +24,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  /* return Promise.allSettled(
-    pokemonDatabase.map(async (pokemon) => {
-      return await prisma.pokemon.create({
-        data: pokemon,
+  /*  return Promise.allSettled(
+    moveDatabase.map(async (move) => {
+      return move.moves.map(async (m) => {
+        return await prisma.move.create({
+          data: {
+            pokemonId: move.id,
+            move: m,
+          },
+        });
       });
     })
   )

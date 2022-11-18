@@ -11,7 +11,12 @@ interface Props {
   value: SelectProps[];
   placeholder: string;
 }
-export default function ({ options, value, setValue, placeholder }: Props) {
+export default function MultiSelect({
+  options,
+  value,
+  setValue,
+  placeholder,
+}: Props) {
   return (
     <Select
       isMulti

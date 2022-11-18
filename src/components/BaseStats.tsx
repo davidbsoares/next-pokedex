@@ -7,9 +7,9 @@ interface characteristicsProps {
 }
 
 const BaseStats = ({ pokemon }: characteristicsProps) => {
-  const { types, atk, def, hp, satk, sdef, spd } = pokemon;
-  const firstType = types.split(',')?.[0];
   if (!pokemon) return null;
+  const { types, atk, def, hp, satk, sdef, spd } = pokemon;
+  const firstType = types?.find((type) => type.firstType)?.type;
 
   const stats = [
     { name: 'HP', value: hp || 0 },
@@ -26,12 +26,12 @@ const BaseStats = ({ pokemon }: characteristicsProps) => {
         return (
           <div key={index} className="flex items-center justify-center">
             <span
-              className="pr-3 border-r border-solid border-r-gray-400 flex justify-end flex-[0_0_50px]"
+              className="pr-3 border-r border-solid border-r-gray-400 flex justify-end w-[50px]"
               style={{ color: firstType && COLORS.types[firstType] }}
             >
               {stat.name}
             </span>
-            <span className="pl-3 pr-2 flex-[0_0_46px]">{stat.value}</span>
+            <span className="pl-3 pr-2 w-12">{stat.value}</span>
             <BarPoints color={firstType} value={stat.value} />
           </div>
         );

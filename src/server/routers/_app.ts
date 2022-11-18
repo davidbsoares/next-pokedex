@@ -26,13 +26,17 @@ export const appRouter = router({
             ...(input.types?.length
               ? {
                   types: {
-                    in: input.types,
+                    some: {
+                      type: {
+                        in: input.types,
+                      },
+                    },
                   },
                 }
               : {}),
             ...(input.kinds?.length
               ? {
-                  kinds: {
+                  special_kind: {
                     in: input.kinds,
                   },
                 }
@@ -47,20 +51,29 @@ export const appRouter = router({
             def: true,
             types: true,
             image: true,
+            moves: true,
           },
           take: 9,
           skip: input.offset,
           where: {
-            ...(input.types?.length && {
-              types: {
-                in: input.types.join(','),
-              },
-            }),
-            ...(input.kinds?.length && {
-              kinds: {
-                in: input.kinds.join(','),
-              },
-            }),
+            ...(input.types?.length
+              ? {
+                  types: {
+                    some: {
+                      type: {
+                        in: input.types,
+                      },
+                    },
+                  },
+                }
+              : {}),
+            ...(input.kinds?.length
+              ? {
+                  special_kind: {
+                    in: input.kinds,
+                  },
+                }
+              : {}),
           },
         }),
       ]);
@@ -77,6 +90,22 @@ export const appRouter = router({
       return await prisma.pokemon.findUnique({
         where: {
           id: input.id,
+        },
+        select: {
+          id: true,
+          name: true,
+          atk: true,
+          def: true,
+          types: true,
+          image: true,
+          moves: true,
+          height: true,
+          description: true,
+          hp: true,
+          satk: true,
+          sdef: true,
+          spd: true,
+          weight: true,
         },
       });
     }),
