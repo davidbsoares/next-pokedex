@@ -25,9 +25,12 @@ const Card = ({ pokemon }: CardProps) => {
             <Stats name="DEF" value={def} />
           </div>
           <div className="flex items-center content-start gap-2">
-            {types.slice(0, 2).map(({ type }, i) => (
-              <Tag key={i} type={type} />
-            ))}
+            {types
+              .sort((x) => (x.firstType ? -1 : 1))
+              .slice(0, 2)
+              .map(({ type }, i) => (
+                <Tag key={i} type={type} />
+              ))}
           </div>
         </div>
 

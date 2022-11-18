@@ -81,7 +81,7 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
 
             <div className="flex justify-center gap-4 mt-12 align-center">
               {pokemon?.types
-                ?.sort((x) => (x ? -1 : 1))
+                ?.sort((x) => (x.firstType ? -1 : 1))
                 .slice(0, 2)
                 .map(({ type }, i) => (
                   <Tag key={i} type={type} />
