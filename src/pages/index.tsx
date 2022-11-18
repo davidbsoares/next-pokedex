@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { trpc } from 'utils/trpc';
 import Select from '@components/Select';
 import Loading from '@components/Loading';
+import cover from 'assets/cover-preview.png';
 
 interface pokemonsListProps {
   pokemons: PokemonProps[];
@@ -50,7 +51,14 @@ const Home: NextPage<pokemonsListProps> = () => {
     <>
       <Head>
         <title>Pokedex</title>
-        <meta name="description" content="Pokedex mede with NextJs" />
+        <meta name="description" content="Pokedex made with NextJs" />
+        <meta name="og:title" content="Pokedex" />
+        <meta property="og:description" content="Pokedex made with NextJs" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://github.com/davidbsoares/next-pokedex/blob/9bb8c467d92138f69dd33eda179e0898b9e3f288/public/cover-preview.png"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col items-center w-full min-h-screen">
