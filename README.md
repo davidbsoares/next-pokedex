@@ -8,9 +8,8 @@
 
 ## 🖥 Preview 
   
-  ![](/src/assets/cover-preview.png) 
-  ![](/src/assets/pokemon-desktop-preview.png) 
-  ![](/src/assets/pokemon-mobile-preview.png) 
+  ![](/public/cover-preview.png) 
+  ![](/public/pokemon-desktop-preview.png) 
 
 ---
 
