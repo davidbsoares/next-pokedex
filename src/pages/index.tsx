@@ -23,9 +23,9 @@ const Home: NextPage<pokemonsListProps> = () => {
   const [kind, setKind] = useState<selectProps[]>([]);
   const [type, setType] = useState<selectProps[]>([]);
   const [total, setTotal] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 9;
 
-  const [currentPage, setCurrentPage] = useState(1);
   const data = trpc.getPokemons.useQuery({
     offset: (currentPage - 1) * pageSize,
     types: type.map((t) => t.value),
@@ -40,6 +40,10 @@ const Home: NextPage<pokemonsListProps> = () => {
       setPokemons(data?.[1]);
     }
   }, [data, total]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [kind, type]);
 
   return (
     <>
