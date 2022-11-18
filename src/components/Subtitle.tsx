@@ -8,7 +8,7 @@ interface subtitleProps {
 const Subtitle = ({ title, color }: subtitleProps) => {
   return (
     <h2
-      className="text-lg font-bold mt-4 mb-2"
+      className="mt-4 mb-2 text-lg font-bold"
       style={{ color: color && COLORS.types[color] }}
     >
       {title}

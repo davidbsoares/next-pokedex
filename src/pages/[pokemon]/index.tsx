@@ -37,10 +37,10 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className="w-full min-h-screen flex flex-col items-center pb-5 gap-y-8"
+        className="flex flex-col items-center w-full min-h-screen pb-5 gap-y-8"
         style={{ backgroundColor: firstType && COLORS.types[firstType] }}
       >
-        <div className="flex w-full gap-2 capitalize items-center self-start pt-4 pl-4 text-4xl font-bold text-white">
+        <div className="flex items-center self-start w-full gap-2 pt-4 pl-4 text-4xl font-bold text-white capitalize">
           <Link href="/">
             <a>
               <ArrowLeft size={32} weight="bold" color="#ffffff" />
@@ -49,12 +49,12 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
           {pokemon.name}
         </div>
         <div
-          className="flex flex-col align-center w-4/5 sm:w-3/5 md:w-2/5 lg:w-1/3"
+          className="flex flex-col w-4/5 align-center sm:w-3/5 md:w-2/5 lg:w-1/3"
           style={{ backgroundColor: firstType && COLORS.types[firstType] }}
         >
           <div className="flex flex-col justify-center items-center w-full bg-[white] px-5 pb-11 rounded-lg relative mt-36">
             <img
-              className="absolute w-48 aspect-square top-0 left-1/2 -translate-y-3/4 -translate-x-1/2"
+              className="absolute top-0 w-48 -translate-x-1/2 aspect-square left-1/2 -translate-y-3/4"
               src={pokemon.image}
               alt={pokemon.name}
             />
@@ -79,7 +79,7 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
               </a>
             </Link>
 
-            <div className="flex gap-4 align-center justify-center mt-12">
+            <div className="flex justify-center gap-4 mt-12 align-center">
               {pokemon?.types
                 ?.sort((x) => (x ? -1 : 1))
                 .slice(0, 2)

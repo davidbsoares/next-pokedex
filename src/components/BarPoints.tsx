@@ -9,7 +9,7 @@ const BarPoints = ({ color, value }: BarPointsColor) => {
   const percentage = (value / 200) * 100 || 0;
   return (
     <input
-      className="h-1 flex-1 rounded-lg border-none appearance-none"
+      className="flex-1 h-1 border-none rounded-lg appearance-none"
       type="range"
       step="1"
       min={0}

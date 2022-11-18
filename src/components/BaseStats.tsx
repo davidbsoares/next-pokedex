@@ -31,7 +31,7 @@ const BaseStats = ({ pokemon }: characteristicsProps) => {
             >
               {stat.name}
             </span>
-            <span className="pl-3 pr-2 w-12">{stat.value}</span>
+            <span className="w-12 pl-3 pr-2">{stat.value}</span>
             <BarPoints color={firstType} value={stat.value} />
           </div>
         );

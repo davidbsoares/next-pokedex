@@ -11,21 +11,21 @@ const Characteristics = ({ pokemon }: characteristicsProps) => {
   if (!pokemon) return null;
   return (
     <div className="flex items-end">
-      <div className="flex flex-col gap-y-1 px-4">
-        <div className="flex gap-x-1 items-center justify-center flex-wrap">
+      <div className="flex flex-col px-4 gap-y-1">
+        <div className="flex flex-wrap items-center justify-center gap-x-1">
           <Barbell size={26} />
           <span className="text-sm">{weight && weight / 10} Kg</span>
         </div>
-        <span className="text-sm text-center font-bold">Weight</span>
+        <span className="text-sm font-bold text-center">Weight</span>
       </div>
-      <div className="flex flex-col gap-y-1 px-4">
-        <div className="flex gap-x-1 items-center justify-center flex-wrap">
+      <div className="flex flex-col px-4 gap-y-1">
+        <div className="flex flex-wrap items-center justify-center gap-x-1">
           <Ruler size={26} />
           <span className="text-sm">{height && height / 10} m</span>
         </div>
-        <span className="text-sm text-center font-bold">Height</span>
+        <span className="text-sm font-bold text-center">Height</span>
       </div>
-      <div className="flex flex-col gap-y-1 px-4">
+      <div className="flex flex-col px-4 gap-y-1">
         <div className="flex flex-col text-center">
           {moves?.slice(0, 2).map(({ move }, index) => (
             <span className="text-sm" key={index}>
@@ -33,7 +33,7 @@ const Characteristics = ({ pokemon }: characteristicsProps) => {
             </span>
           ))}
         </div>
-        <span className="text-sm text-center font-bold">Moves</span>
+        <span className="text-sm font-bold text-center">Moves</span>
       </div>
     </div>
   );
