@@ -32,8 +32,11 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
     <>
       <Head>
         <title>Pokedex | {pokemon.name}</title>
-        <meta name="description" content={pokemon.description} />
         <meta name="og:title" content={pokemon.name} />
+        <meta name="description" content={pokemon.description} />
+        <meta property="og:image" content={pokemon.image} />
+        <meta name="twitter:card" content="summary" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
