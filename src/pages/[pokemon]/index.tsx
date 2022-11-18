@@ -37,7 +37,7 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className="w-full min-h-screen flex flex-col items-center justify-center pb-5 gap-y-8"
+        className="w-full min-h-screen flex flex-col items-center pb-5 gap-y-8"
         style={{ backgroundColor: firstType && COLORS.types[firstType] }}
       >
         <div className="flex w-full gap-2 capitalize items-center self-start pt-4 pl-4 text-4xl font-bold text-white">
