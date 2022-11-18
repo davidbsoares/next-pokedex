@@ -57,7 +57,7 @@ const Home: NextPage<pokemonsListProps> = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://4.bp.blogspot.com/-UYJjvmDemn0/WT3ov0R6cpI/AAAAAAAAvgE/frFGuJ4p4Ac7umWkdZZF5qTbnKdReWP2wCLcB/s1600/landscape-1456483171-pokemon2.jpg"
+          content="https://4.bp.blogspot.com/-NClwQIrF9dw/UKZtlzh3BUI/AAAAAAAADIU/UJJlJhrQRHo/s1600/Pokedex_DP.png"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
