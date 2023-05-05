@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Card from '@components/Card';
-import { PokemonProps } from 'types';
 import { pokemonKinds, pokemonTypes } from 'constants/pokemonOptions';
 import Pagination from '@components/Pagination';
 import { useState, useEffect } from 'react';
@@ -9,17 +8,12 @@ import { trpc } from 'utils/trpc';
 import Select from '@components/Select';
 import Loading from '@components/Loading';
 
-interface pokemonsListProps {
-  pokemons: PokemonProps[];
-  count: number;
-}
-
 interface selectProps {
   value: string;
   label: string;
 }
 
-const Home: NextPage<pokemonsListProps> = () => {
+const Home: NextPage = () => {
   const [kind, setKind] = useState<selectProps[]>([]);
   const [type, setType] = useState<selectProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
