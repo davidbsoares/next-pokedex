@@ -26,13 +26,13 @@ const Pokemon: NextPage<pageProps> = ({ pokemon }) => {
     return null;
   }
 
+  const title = `Pokedex | ${pokemon.name}`
   const firstType = pokemon?.types?.find((type) => type.firstType)?.type;
-
   return (
     <>
       <Head>
-        <title>Pokedex | {pokemon.name}</title>
-        <meta name="og:title" content={pokemon.name} />
+        <title>{title}</title>
+        <meta name="og:title" content={title} />
         <meta name="description" content={pokemon.description} />
         <meta property="og:image" content={pokemon.image} />
         <meta name="twitter:card" content="summary" />
