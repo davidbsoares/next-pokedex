@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 import { trpc } from 'utils/trpc';
 import Select from '@components/Select';
 import Loading from '@components/Loading';
-import cover from 'assets/cover-preview.png';
 
 interface pokemonsListProps {
   pokemons: PokemonProps[];
@@ -21,10 +20,8 @@ interface selectProps {
 }
 
 const Home: NextPage<pokemonsListProps> = () => {
-  const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
   const [kind, setKind] = useState<selectProps[]>([]);
   const [type, setType] = useState<selectProps[]>([]);
-  const [total, setTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 9;
 
@@ -33,15 +30,6 @@ const Home: NextPage<pokemonsListProps> = () => {
     types: type.map((t) => t.value),
     kinds: kind.map((t) => t.value),
   });
-
-  useEffect(() => {
-    if (data && total !== data?.[0]) {
-      setTotal(data?.[0]);
-    }
-    if (data?.[1]) {
-      setPokemons(data?.[1]);
-    }
-  }, [data, total]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -63,7 +51,7 @@ const Home: NextPage<pokemonsListProps> = () => {
       </Head>
       <div className="flex flex-col items-center w-full min-h-screen">
         <h1 className="mx-4 mt-16 text-4xl tracking-widest text-center">
-          {total || '000'} Pokemons for you to choose your favorite
+          {data?.total || '000'} Pokemons for you to choose your favorite
         </h1>
         <div className="flex gap-4 my-9">
           <Select
@@ -82,7 +70,7 @@ const Home: NextPage<pokemonsListProps> = () => {
 
         {!isLoading ? (
           <div className="grid items-center justify-center w-full max-w-6xl grid-rows-3 justify-items-center mb-7 grid-cols-auto-fill gap-x-8 gap-y-11">
-            {pokemons.map((pokemon) => (
+            {data?.pokemons?.map((pokemon) => (
               <Card pokemon={pokemon} key={pokemon.id} />
             ))}
           </div>
@@ -90,10 +78,10 @@ const Home: NextPage<pokemonsListProps> = () => {
           <Loading />
         )}
 
-        {total && (
+        {data && (
           <Pagination
             currentPage={currentPage}
-            totalCount={total}
+            totalCount={data?.total}
             pageSize={pageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />

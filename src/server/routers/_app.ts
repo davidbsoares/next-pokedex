@@ -8,9 +8,6 @@ const prisma = new PrismaClient({
 });
 
 export const appRouter = router({
-  // TODO: criar função para pegar pegar pokemons por página e parâmetros de tipo e nome
-  // TODO: função pokemon por id
-
   getPokemons: publicProcedure
     .input(
       z.object({
@@ -77,8 +74,7 @@ export const appRouter = router({
           },
         }),
       ]);
-
-      return pokemons;
+      return { total: pokemons[0], pokemons: pokemons[1] };
     }),
   getPokemon: publicProcedure
     .input(

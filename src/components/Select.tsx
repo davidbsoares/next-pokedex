@@ -28,7 +28,7 @@ export default function MultiSelect({
           ...baseStyle,
           zIndex: '50',
         }),
-        control: (baseStyle, state) => ({
+        control: (baseStyle) => ({
           ...baseStyle,
           height: '44px',
           borderColor: 'grey',
